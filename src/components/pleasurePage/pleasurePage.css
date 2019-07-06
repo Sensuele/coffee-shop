@@ -1,0 +1,9 @@
+.pleasure {
+  height: 260px;
+  background: url(./img/Pleasure_bg.jpg) center center no-repeat;
+  background-size: cover
+}
+
+.pleasure .title-big {
+  margin-top: 60px
+}

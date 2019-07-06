@@ -1,0 +1,151 @@
+.banner {
+  height: 260px;
+  background: url(/img/Coffee_bg.jpg) center center no-repeat;
+  background-size: cover
+}
+
+.banner .title-big {
+  margin-top: 60px
+}
+
+.shop {
+  padding: 70px 0 40px 0
+}
+
+.shop .title {
+  margin-top: 10px
+}
+
+.shop__girl {
+  display: block;
+  margin: 0 auto
+}
+
+.shop__text {
+  margin-top: 25px;
+  font-size: 14px;
+  text-align: center
+}
+
+.shop__search-label {
+  margin-right: 20px
+}
+
+.shop__search-input {
+  width: 180px;
+  height: 30px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, .25);
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 0 15px
+}
+
+.shop__search-input::-webkit-input-placeholder {
+  text-align: center
+}
+
+.shop__search-input::-ms-input-placeholder {
+  text-align: center
+}
+
+.shop__search-input::placeholder {
+  text-align: center
+}
+
+.shop__filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.shop__filter-label {
+  margin-right: 35px
+}
+
+.shop__filter-btn {
+  width: 75px;
+  height: 30px;
+  background-color: #fff;
+  border: none;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, .25);
+  font-size: 12px;
+  outline: 0;
+  cursor: pointer;
+  margin: 0 2px 0 2px
+}
+
+.shop__filter-btn:first-child {
+  border-radius: 4px 0 0 4px
+}
+
+.shop__filter-btn:last-child {
+  border-radius: 0 4px 4px 0
+}
+
+.shop__filter-btn:focus {
+  outline: 0
+}
+
+.shop__wrapper {
+  display: flex;
+  flex-wrap: wrap
+}
+
+.shop__item {
+  width: 220px;
+  min-height: 240px;
+  margin: 60px 40px 0 40px;
+  padding: 22px 24px;
+  background: rgba(255, 255, 255, .65);
+  border-radius: 8px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .25);
+  transition: .3s all
+}
+
+.shop__item:hover {
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, .25)
+}
+
+.shop__item img {
+  display: block;
+  margin: 0 auto;
+  width: 151px;
+  height: 130px;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+
+.shop__item-country,
+.shop__item-price,
+.shop__item-title {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: right
+}
+
+.shop__point {
+  margin-top: 16px
+}
+
+.shop__point span {
+  font-weight: 700
+}
+
+.shop__point-price {
+  font-size: 24px;
+  font-weight: 400 !important
+}
+
+.shop__point:first-child {
+  margin-top: 26px
+}
+
+.line {
+  width: 240px;
+  height: 1px;
+  background-color: #000;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 60px
+}

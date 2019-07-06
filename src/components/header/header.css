@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 30px;
+  list-style-type: none
+}
+
+.header__item {
+  font-size: 12px;
+  margin-right: 40px;
+  font-weight: 400;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, .25)
+}
+
+.header__item:first-child {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px)
+}
+
+.header__item a {
+  color: #fff
+}
+
+.header__item a:visited {
+  text-decoration: none;
+  color: #fff
+}
+
+.header__item a:hover {
+  text-decoration: none;
+  color: #fff
+}
