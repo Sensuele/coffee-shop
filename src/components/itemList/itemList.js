@@ -5,6 +5,7 @@ class ItemList extends Component {
 
   state = {
     itemList: null,
+    name: '',
     error: false
   }
 
@@ -47,26 +48,34 @@ class ItemList extends Component {
     }
   }
 
+  updateData(items, term = "") {
+    if (term.length === 0 || !term) {
+      return items
+    }
+    
+    return items.filter( (item) => {
+      return item.name.toLowerCase().indexOf(term.toLowerCase()) > -1 
+    })
+  }
+
   render() {
 
     const {itemList} = this.state;
+    const {term} = this.props;
 
-    
     if (!itemList) {
         return null
     }
 
+    const resFilter = this.updateData(itemList, term);
+    const coffee = this.renderCoffee(resFilter);       
 
-    const item = this.renderCoffee(itemList);       
-    
     return (
       <>
-        {item}
+        {coffee}
       </>
     );
 }
-
-
 }
 
 export default withRouter(ItemList);
