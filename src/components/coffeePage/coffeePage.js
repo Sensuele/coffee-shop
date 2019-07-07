@@ -11,32 +11,21 @@ export default class CoffeePage extends Component {
     constructor(props) {
         super(props);
             this.state = {
-                term:''
+                term:'',
+                filter: ''
             }
             this.onUpdateSearch = this.onUpdateSearch.bind(this);
+            this.onUpdateFilter = this.onUpdateFilter.bind(this);
     };
-
-    SearchPost(items, term) {
-        if (term.length === 0) {
-        return items
-        }
-    
-        return items.filter( (item) => {
-            return item.name.indexOf(term) > -1 
-        })
-    }
-
-    filterPost(items, filter) {
-        if (filter === 'like') {
-            return items.filter(item => item.like)
-        } else {
-            return items
-        }
-    }
 
     onUpdateSearch(term) {
         this.setState({term})
-        console.log({term});
+    }
+
+    onUpdateFilter(country) {
+        this.setState(
+            {filter: country}
+            )
     }
 
 	service = new GetService();
@@ -92,9 +81,15 @@ export default class CoffeePage extends Component {
                             Or filter
                         </div>
                         <div className="shop__filter-group">
-                            <button className="shop__filter-btn">Brazil</button>
-                            <button className="shop__filter-btn">Kenya</button>
-                            <button className="shop__filter-btn">Columbia</button>
+                        <button className="shop__filter-btn"
+                                onClick = {() => this.onUpdateFilter('Brazil')}
+                            >Brazil</button>
+                            <button className="shop__filter-btn"
+                                onClick = {() => this.onUpdateFilter('Kenya')}
+                            >Kenya</button>
+                            <button className="shop__filter-btn"
+                                onClick = {() => this.onUpdateFilter('Columbia')}
+                            >Columbia</button>
                         </div>
                     </div>
                 </div>
@@ -102,8 +97,10 @@ export default class CoffeePage extends Component {
             <div className="row">
                 <div className="col-lg-10 offset-lg-1">
                     <div className="shop__wrapper">
-                        <ItemList getData = {this.service.getShop}
+                        <ItemList 
+                        getData = {this.service.getShop}
                         term = {this.state.term}
+                        filter = {this.state.filter}
                         />                        
                     </div>
                 </div>

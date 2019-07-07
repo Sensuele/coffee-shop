@@ -58,16 +58,25 @@ class ItemList extends Component {
     })
   }
 
+  filterPost(items, filter) {
+    if(filter !== '') {
+      const newArray = items.filter(item => item.country === filter);
+      return newArray;
+    } else {
+      return items
+    }
+  }
+
   render() {
 
     const {itemList} = this.state;
-    const {term} = this.props;
+    const {term, filter} = this.props;
 
     if (!itemList) {
         return null
     }
 
-    const resFilter = this.updateData(itemList, term);
+    const resFilter = this.filterPost(this.updateData(itemList, term), filter);
     const coffee = this.renderCoffee(resFilter);       
 
     return (
