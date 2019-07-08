@@ -1,25 +1,30 @@
 export default class GetService {
 
-  constructor(){
-    this._base = '/db.json';
+  
+  constructor() {
+    this._apiBase = 'http://localhost:3000';
   }
-  getAllData = async () => {
-    const res = await fetch(`${this._base}`);
+  
+  getAllData = async url => {
+    const res = await fetch(`${this._apiBase}${url}`);
+    if (!res.ok) {
+      throw new Error(`Could not fetch ${url}, recived ${res.status}`);
+    }
     return await res.json();
   }
   getBestItems = async () => {
-    const res = await this.getAllData();
-    return res.bestsellers;
+    const res = await this.getAllData(`/bestsellers/`);
+    return res;
   }
 
   getShop = async () => {
-    const res = await this.getAllData();
-    return res.coffee;
+    const res = await this.getAllData(`/coffee/`);
+    return res;
   }
 
   getGoods = async () => {
-    const res = await this.getAllData();
-    return res.goods;
+    const res = await this.getAllData(`/goods/`);
+    return res;
   }
 
 }

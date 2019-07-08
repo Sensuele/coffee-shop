@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
+import Spinner from '../spinner';
 
 class ItemList extends Component {
 
   state = {
     itemList: null,
     name: '',
-    error: false
+    error: false,
+    loading: true
   }
 
   componentDidMount() {
@@ -16,13 +18,18 @@ class ItemList extends Component {
           .then( (itemList) => {
               this.setState({
                   itemList,
-                  name            
+                  name,
+                  loading: false               
               })
           })
   }
 
   renderCoffee(arr) {
-    const {name} = this.state;     
+    const {name, loading} = this.state;
+    if(loading) {
+      return <Spinner />
+    }     
+    
     return arr.map((item,id) => {
       return (
         <div key = {id} className="shop__item"

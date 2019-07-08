@@ -12,7 +12,8 @@ export default class CoffeePage extends Component {
         super(props);
             this.state = {
                 term:'',
-                filter: ''
+                filter: '',
+                loading: true
             }
             this.onUpdateSearch = this.onUpdateSearch.bind(this);
             this.onUpdateFilter = this.onUpdateFilter.bind(this);
