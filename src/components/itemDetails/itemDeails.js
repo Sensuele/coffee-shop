@@ -6,6 +6,9 @@ import Header from '../header';
 
 
 export default class ItemDetails extends Component {
+
+ 
+
   render() {
 
     const arr = this.props.location.state;

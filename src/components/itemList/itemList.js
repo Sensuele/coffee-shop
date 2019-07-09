@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import Spinner from '../spinner';
+import ErrorMessage from '../errorMessage/';
 
 class ItemList extends Component {
 
@@ -9,6 +10,13 @@ class ItemList extends Component {
     name: '',
     error: false,
     loading: true
+  }
+
+  onError = (err) => {
+    this.setState({
+      error: true,
+      loading: false
+    })
   }
 
   componentDidMount() {
@@ -22,6 +30,8 @@ class ItemList extends Component {
                   loading: false               
               })
           })
+          .catch(this.onError);
+
   }
 
   renderCoffee(arr) {
@@ -76,18 +86,25 @@ class ItemList extends Component {
 
   render() {
 
-    const {itemList} = this.state;
+    const {itemList, error} = this.state;
     const {term, filter} = this.props;
 
-    if (!itemList) {
-        return null
+    if (this.state.error) {
+      return <ErrorMessage />;
     }
 
+    if (!itemList) {
+      return <Spinner />;
+    }
+
+
     const resFilter = this.filterPost(this.updateData(itemList, term), filter);
-    const coffee = this.renderCoffee(resFilter);       
+    const coffee = this.renderCoffee(resFilter);    
+    const errorMessage = error ? <ErrorMessage /> : null   
 
     return (
       <>
+        {errorMessage}
         {coffee}
       </>
     );

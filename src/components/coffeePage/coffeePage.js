@@ -4,6 +4,8 @@ import './coffeePage.css';
 import ItemList from '../itemList';
 import GetService from '../../services/getService';
 import SearchPanel from '../searchPanel';
+// import ErrorMessage from '../errorMessage/';
+// import Spinner from '../spinner';
 
 
 export default class CoffeePage extends Component {
@@ -13,6 +15,7 @@ export default class CoffeePage extends Component {
             this.state = {
                 term:'',
                 filter: '',
+                error: false,
                 loading: true
             }
             this.onUpdateSearch = this.onUpdateSearch.bind(this);
@@ -28,10 +31,14 @@ export default class CoffeePage extends Component {
             {filter: country}
             )
     }
+    componentDidCatch() {
+        this.setState({ error: true });
+      }
 
 	service = new GetService();
 
 	render() {
+       
 
     return(
       <>
