@@ -1,17 +1,31 @@
 import React, {Component} from 'react';
 import './itemDetails.css';
 import Header from '../header';
+import Spinner from "../spinner";
+import ErrorMessage from "../errorMessage";
 
 
 
 
 export default class ItemDetails extends Component {
 
- 
+  state = {error: false };
+  componentDidCatch() {
+    console.log("error");
+    this.setState({ error: true });
+  }
 
   render() {
 
     const arr = this.props.location.state;
+    
+    if (this.state.error) {
+      return <ErrorMessage />;
+    }
+
+    if (!arr) {
+      return <Spinner />;
+    }
     return(
         <> 
         <div className="banner">
@@ -19,6 +33,7 @@ export default class ItemDetails extends Component {
           <div className="row">
             <div className="col-lg-6">
             <Header />
+            
             </div>
           </div>
           <h1 className="title-big">Our Coffee</h1>
@@ -50,6 +65,7 @@ export default class ItemDetails extends Component {
         </div>
       </section>
       </>
+      
     )
   }
 }
