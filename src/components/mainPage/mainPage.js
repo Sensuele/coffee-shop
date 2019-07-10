@@ -63,7 +63,7 @@ export default class MainPage extends Component {
             <div className="row">
                 <div className="col-lg-10 offset-lg-1">
                     <div className="best__wrapper">
-						<ItemList getData = {this.service.getBestItems}
+						<ItemList getData = {this.service.getBestItems} 
 						/>
                        
                     </div>

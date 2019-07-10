@@ -49,12 +49,12 @@ export default class ItemDetails extends Component {
                     <div className="title">About it</div>
                     <img className="beanslogo" src= {process.env.PUBLIC_URL + `/img/logo/Beans_logo_dark.svg`} alt="Beans logo"/>
                     <div className="shop__point">
-                        <span>Country:</span>
-                        {arr.country}
+                        <span>Country:</span>               
+                        {arr.country ? arr.country : ' no data (.......'}
                     </div>
                     <div className="shop__point">
-                        <span>Description:</span>
-                        {arr.description}
+                        <span>Description:</span>                        
+                        {arr.description ? arr.description : ' no data (.......'}
                     </div>
                     <div className="shop__point">
                         <span>Price:</span>
